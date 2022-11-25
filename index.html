@@ -4,27 +4,71 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
+	<style type="text/css">
+		body{
+			background-image: url(https://i.ytimg.com/vi/XJqQHuAj4RI/maxresdefault.jpg);
+
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		.div{
+			text-align: center;
+			margin-top: 11%;
+			margin-right: 8%;
+			/*background-image: url(https://cdn.pixabay.com/photo/2021/06/29/06/14/water-drops-6373296__340.jpg);
+			background-repeat: no-repeat;
+			background-size: 50% 50%;*/
+			background-color: white;
+			width: 50%;
+			padding-bottom: 8%;
+			padding-top: 1%;
+
+		}
+	</style>
 	<script type="text/javascript">
 		function store(){
 		   var username=document.getElementById("username").value
+		   console.log(username)
 		   var password=document.getElementById("password").value
+		   console.log(password)
+		   var date=document.getElementById("date")
+		   console.log(date)
+		   var 
 		fetch("http://localhost:2004/newData",{
 			method:"POST",
 			headers:{
 				"content-Type":"application/JSON"
 			},
-			body:JSON.stringify({name:username,password:"100"})
+			body:JSON.stringify({name:username,password:password,gender:gender})
 
 		})
-		
+		.then((res)=>{
+			console.log(res)
+			if(res.status===200)
+				alert("data entered succesfully")
+		})
+		.catch((err)=>{
+			alert(err)
+		})
 		}
 	</script>
 </head>
 <body>
-	
-	<input type="text" placeholder="username" id="username">
-	<input type="text" placeholder="password" id="password">
-	<button id="button" onclick="store()">submit</button>
+	<div class="div">
+		<h1>Registration form</h1>
+	<p><input type="text" placeholder=" Enter your username" id="username"></p>
+	<p><input type="text" placeholder=" enter password" id="password"></p>
+	<p><input type="date" id="date" /></p>
+	<p><input type="radio" value="male" name="gender">male
+	    <input type="radio" value="female" name="gender">female</p>
+	  <p><input type="checkbox" value="yes"name="yes or no">yes
+	     <input type="checkbox" value="no"name="yes or no">no</p>
+	     <select><option value="select a city">select a city
+	     	<option value="andhra pradesh">Andhra Pradesh
+	     		<option value="vizag">vizag
+	     		</select>  
+	<p><button onclick="store()">submit</button></p>
+</div>
 
 </body>
 </html>

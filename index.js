@@ -10,11 +10,14 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json())
 app.use(cors())
 app.get("/",(req,res)=>{
-	res.send("hi this is usha sri")
+	res.send("div alone")
 })
 app.post("/newData",(req,res)=>{
 	//console.log(req.body)
-	const{name,age}=req.body
-	console.log(name,age,"values")
+	const{name,password,date}=req.body
+	console.log(name)
+	console.log(password)
+	console.log(date)
+	res.send("added sucessfully")
 })
 app.listen(port,()=>console.log("server started in post"))
